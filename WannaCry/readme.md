@@ -45,7 +45,7 @@ In this scenario, the kill switch was not activated, and the malware continued t
 
 Lets take a couple steps back and take a look at our decompiled entry.  Using foresight of a seasoned Windows reverse engineer (which I am not), see that the entry function contains similar code that runs as a WinMain() function. We can take documentation provided to us by Microsoft about WinMain and replace our kill switch failure entry point with WinMain clearing up function names with names that will make sense to us.  
 
-![image](https://user-images.githubusercontent.com/38113471/88589703-c4edd400-d016-11ea-844d-53283ad37208.png)
+![image](https://user-images.githubusercontent.com/38113471/88593378-b3a7c600-d01c-11ea-92ed-198019d9fcfb.png)
 
 Now that we have renamed our entry function to WinMain(), lets see what it does exactly. 
 
@@ -77,7 +77,7 @@ Couple interesting things that pop out; From kernel32.dll, we get the functions 
 
 With our wisdom in RE we can see that sprintf is trying to get to 2 locations, however both contain %s, a placeholder which when we hover over get a value in our listing pane:
 
-![image](https://user-images.githubusercontent.com/38113471/88589790-e222a280-d016-11ea-8763-9702833266e2.png)
+![image](https://user-images.githubusercontent.com/38113471/88593392-b6a2b680-d01c-11ea-8378-bbef591d6ee3.png)
   
 
 Overriding the function signature to include 2 more chars helps us make sense of this functions parameters and expected output:
