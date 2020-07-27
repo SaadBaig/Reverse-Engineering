@@ -14,7 +14,7 @@ Being a Windows based ransomware, we load it up into an outdated Windows 7 VM, s
 ## Entry point: 
 When we open the WannaCry.exe within Ghidra, we are greeted with a window showing us basic information about the binary. Once we have launched the .exe in Ghidra, we can start looking at its functions. Here’s an interesting function called ‘entry’ which was found under the Functions folder in the Symbol Tree pane:
 
-![image](https://user-images.githubusercontent.com/38113471/88589662-b69fb800-d016-11ea-8637-f35bf49c12a6.png)
+![image](https://user-images.githubusercontent.com/38113471/88592611-7a228b00-d01b-11ea-8cd0-f59541f9feaa.png)
  
 
 All of this initial information is a little busy. We have a couple open panes, such as program trees which shows us the Portable Executable (PE) code segment as they would be found in memory; we have our .text, .data as well as a couple other exe based info such as .rdata which is a read only data partition, and .rsrc which is a section for resources required by a module. When a program runs, it runs by calling main(). In Windows, this main function is called WinMain() or main() instead. 
